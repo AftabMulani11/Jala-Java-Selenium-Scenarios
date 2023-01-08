@@ -19,12 +19,12 @@ public class TextBox {
         Thread.sleep(1000);
         driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("jobprogram"); //Type in text box
         Thread.sleep(1000);
-        System.out.println("The entered text in textbox: "+ driver.findElement(By.xpath("//*[@id=\"UserName\"]")).getAttribute("value"));
-        System.out.println("The entered placeholder in the textbox is: " + driver.findElement(By.xpath("//*[@id=\"Password\"]")).getAttribute("placeholder"));
-        driver.findElement(By.xpath("//*[@id=\"UserName\"]")).clear();
+        System.out.println("The entered text in textbox: "+ driver.findElement(By.xpath("//*[@id=\"UserName\"]")).getAttribute("value")); //value of text box
+        System.out.println("The entered placeholder in the textbox is: " + driver.findElement(By.xpath("//*[@id=\"Password\"]")).getAttribute("placeholder")); //placeholder name
+        driver.findElement(By.xpath("//*[@id=\"UserName\"]")).clear(); //command to clear all text box
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//*[@id=\"Password\"]")).clear();
-		System.out.println("If true, the webelement is enabled; else false means disabled: "+driver.findElement(By.xpath("//*[@id=\"UserName\"]")).isEnabled());
+		driver.findElement(By.xpath("//*[@id=\"Password\"]")).clear(); //command to clear all text box
+		System.out.println("If true, the webelement is enabled; else false means disabled: "+driver.findElement(By.xpath("//*[@id=\"UserName\"]")).isEnabled()); //check if web element is enabled or not
     }
 
     @Test(priority = 2)
