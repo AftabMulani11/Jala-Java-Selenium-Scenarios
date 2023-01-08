@@ -1,0 +1,35 @@
+package Jala.java.selenium.magnus.operations;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+public class assignment11 {
+    WebDriver driver;
+    @Test(priority = 0)
+    public void launch() throws InterruptedException {
+        driver = new FirefoxDriver();
+        driver.manage().window().maximize();
+        driver.get("http://magnus.jalatechnologies.com/");
+        Thread.sleep(1000);
+    }
+
+    @Test(priority = 1)
+    public void initialize() throws InterruptedException {
+        driver.findElement(By.xpath("//input[@id='UserName']")).sendKeys("training@jalaacademy.com"); //Type in text box
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("jobprogram"); //Type in text box
+        Thread.sleep(1000);
+        System.out.println("The entered value in the textbox is: " + driver.findElement(By.xpath("//input[@id='UserName']")).getAttribute("Value"));
+        System.out.println("The entered placeholder in the textbox is: " + driver.findElement(By.xpath("//*[@id=\"Password\"]")).getAttribute("placeholder"));
+        driver.findElement(By.xpath("//*[@id=\"UserName\"]")).clear();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[@id=\"Password\"]")).clear();
+		System.out.println("If true, the webelement is enabled; else false means disabled: "+driver.findElement(By.xpath("//*[@id=\"UserName\"]")).isEnabled());
+    }
+
+    @Test(priority = 2)
+    public void distroy() throws InterruptedException {
+        Thread.sleep(1000);
+        driver.quit();
+    }
+}
