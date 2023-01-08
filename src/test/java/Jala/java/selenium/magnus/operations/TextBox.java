@@ -3,7 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
-public class assignment11 {
+public class TextBox {
     WebDriver driver;
     @Test(priority = 0)
     public void launch() throws InterruptedException {
@@ -19,7 +19,7 @@ public class assignment11 {
         Thread.sleep(1000);
         driver.findElement(By.xpath("//input[@id='Password']")).sendKeys("jobprogram"); //Type in text box
         Thread.sleep(1000);
-        System.out.println("The entered value in the textbox is: " + driver.findElement(By.xpath("//input[@id='UserName']")).getAttribute("Value"));
+        System.out.println("The entered text in textbox: "+ driver.findElement(By.xpath("//*[@id=\"UserName\"]")).getAttribute("value"));
         System.out.println("The entered placeholder in the textbox is: " + driver.findElement(By.xpath("//*[@id=\"Password\"]")).getAttribute("placeholder"));
         driver.findElement(By.xpath("//*[@id=\"UserName\"]")).clear();
 		Thread.sleep(1000);
