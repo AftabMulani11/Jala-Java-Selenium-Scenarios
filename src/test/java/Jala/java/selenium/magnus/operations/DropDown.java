@@ -26,6 +26,9 @@ public class DropDown {
         Thread.sleep(1000);
         driver.findElement(By.xpath("//a[normalize-space()='Create']")).click();
         Thread.sleep(1000);
+        driver.findElement(By.xpath("//select[@id='CountryId']")).click();
+        driver.findElement(By.xpath("//select[@id='CountryId']//option[@value='6']")).click();
+        Thread.sleep(1000);
     }
 
     @Test (priority = 2)
@@ -42,6 +45,22 @@ public class DropDown {
     }
 
     @Test (priority = 3)
+    public void initialTest1() throws InterruptedException {
+        /*
+        Print first selected option from a dropdown
+         */
+        Select s = new Select(driver.findElement(By.xpath("//select[@id='CountryId']")));
+        List<WebElement> options = s.getOptions();
+        System.out.println("The selected dropdown value is : ");
+        for(WebElement e : options) {
+            if(e.isSelected()==true) {
+                System.out.println(e.getText());
+            }
+        }
+
+    }
+
+    @Test (priority = 4)
     public void destroy() throws InterruptedException {
         Thread.sleep(1000);
         driver.quit();
