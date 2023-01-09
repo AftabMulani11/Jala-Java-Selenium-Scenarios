@@ -73,7 +73,7 @@ public class CheckBox {
         List<WebElement> radio = driver.findElements(By.name("rdbGender")); //number of elements in a radio group
         System.out.println("Radio elements are " + radio.size());
         System.out.println(driver.findElement(By.name("rdbGender")).getAttribute("value")); //all radio button values
-        if (driver.findElement(By.xpath("//input[@value='M']")).isSelected())
+        if (driver.findElement(By.xpath("//input[@value='M']")).isSelected()) // Radio Button is selected
         {
             System.out.println("male Radio button is selected");
         }
@@ -81,7 +81,7 @@ public class CheckBox {
         {
             System.out.println("male radio button is not selected");
         }
-        System.out.println("If true, the webelement is enabled; else false means disabled: " +driver.findElement(By.xpath("//input[@value='M']")).isEnabled());
+        System.out.println("If true, the webelement is enabled; else false means disabled: " +driver.findElement(By.xpath("//input[@value='M']")).isEnabled()); //Radio Button is enabled or disabled
     }
     @Test (priority = 4)
     public void destroy() throws InterruptedException {
