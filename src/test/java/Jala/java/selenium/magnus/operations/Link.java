@@ -3,8 +3,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
-import java.util.Set;
-
+import java.util.*;
 public class Link {
     WebDriver driver;
 
@@ -36,9 +35,10 @@ public class Link {
         Thread.sleep(1000);
         driver.findElement(By.xpath("//a[normalize-space()='Links']")).click();
         Thread.sleep(1000);
-        driver.findElement(By.partialLinkText("Link 1")).click();
+        driver.findElement(By.partialLinkText("Link 1")).click(); //partialLinkText
         Thread.sleep(1000);
-        Set<String> win= driver.getWindowHandles();
+        String mainHandle = driver.getWindowHandle();
+        driver.switchTo().window(mainHandle);
         Thread.sleep(1000);
     }
 
@@ -47,11 +47,33 @@ public class Link {
         /*
         Clicking a link using link Text
         */
+        String mainHandle = driver.getWindowHandle();
+        driver.switchTo().window(mainHandle);
         Thread.sleep(1000);
-        driver.findElement(By.linkText("Link 2")).click();
+        driver.findElement(By.linkText("Link 2")).click(); //linkText
         Thread.sleep(1000);
     }
-    @Test (priority = 6)
+
+    @Test(priority = 6)
+    public void initialTest3() throws InterruptedException {
+        Thread.sleep(1000);
+        String mainHandle = driver.getWindowHandle();
+        driver.switchTo().window(mainHandle);
+        List<WebElement> a = driver.findElements(By.xpath("//a[@target='_blank']"));
+        for(WebElement link:a){
+            System.out.println(link.getText() + " - " + link.getAttribute("href"));
+        }
+        Thread.sleep(1000);
+    }
+
+    @Test (priority = 7)
+    public void initialTest4() throws InterruptedException {
+        driver.findElement(By.xpath("//a[normalize-space()='Image Links']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//img[@alt='Jala Technologies Link']")).click();
+        Thread.sleep(3000);
+    }
+    @Test (priority = 8)
     public void destroy() throws InterruptedException {
         Thread.sleep(1000);
         driver.quit();
