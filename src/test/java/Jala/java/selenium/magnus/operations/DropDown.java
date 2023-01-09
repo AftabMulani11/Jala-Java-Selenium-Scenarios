@@ -3,7 +3,6 @@ import java.util.List;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 public class DropDown {
@@ -56,7 +55,7 @@ public class DropDown {
         List<WebElement> options = s.getOptions();
         System.out.println("The selected dropdown value is : ");
         for(WebElement e : options) {
-            if(e.isSelected()==true) {
+            if(e.isSelected()) {
                 System.out.println(e.getText());
             }
         }
