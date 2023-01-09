@@ -3,6 +3,7 @@ import java.util.List;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 public class DropDown {
@@ -14,6 +15,7 @@ public class DropDown {
         driver.get("http://magnus.jalatechnologies.com/");
         Thread.sleep(1000);
     }
+
     @Test (priority = 1)
     public void login() throws InterruptedException {
         driver.findElement(By.xpath("//input[@id='UserName']")).sendKeys("training@jalaacademy.com");
@@ -42,6 +44,7 @@ public class DropDown {
         {
             System.out.println(e.getText());
         }
+        Thread.sleep(1000);
     }
 
     @Test (priority = 3)
@@ -57,15 +60,44 @@ public class DropDown {
                 System.out.println(e.getText());
             }
         }
-
+        Thread.sleep(1000);
     }
 
     @Test (priority = 4)
+    public void initialTest2() throws InterruptedException {
+        /*
+        Select an option by value from a dropdown
+         */
+        driver.findElement(By.xpath("//select[@id='CountryId']")).click();
+        driver.findElement(By.xpath("//select[@id='CountryId']//option[@value='1']")).click();
+        Thread.sleep(1000);
+    }
+
+    @Test (priority = 5)
+    public void initialTest3() throws InterruptedException {
+        /*
+        Select an option by visible text from a dropdown
+         */
+        driver.findElement(By.xpath("//select[@id='CountryId']")).click();
+        Select s = new Select(driver.findElement(By.xpath("//select[@id='CountryId']")));
+        s.selectByVisibleText("Canada");
+        Thread.sleep(1000);
+    }
+
+    @Test (priority = 6)
+    public void initialTest4() throws InterruptedException {
+        /*
+        Select an option by index from a dropdown
+         */
+        driver.findElement(By.xpath("//select[@id='CountryId']")).click();
+        Select s = new Select(driver.findElement(By.xpath("//select[@id='CountryId']")));
+        s.selectByIndex(1);
+        Thread.sleep(1000);
+    }
+
+    @Test (priority = 7)
     public void destroy() throws InterruptedException {
         Thread.sleep(1000);
         driver.quit();
     }
-
-
-
 }
