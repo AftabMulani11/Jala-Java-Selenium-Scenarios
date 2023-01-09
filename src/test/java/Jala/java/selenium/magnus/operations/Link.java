@@ -56,6 +56,9 @@ public class Link {
 
     @Test(priority = 6)
     public void initialTest3() throws InterruptedException {
+        /*
+        Find out all the links in a web page
+         */
         Thread.sleep(1000);
         String mainHandle = driver.getWindowHandle();
         driver.switchTo().window(mainHandle);
@@ -68,6 +71,9 @@ public class Link {
 
     @Test (priority = 7)
     public void initialTest4() throws InterruptedException {
+        /*
+        Clicking on an image link
+         */
         driver.findElement(By.xpath("//a[normalize-space()='Image Links']")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//img[@alt='Jala Technologies Link']")).click();
