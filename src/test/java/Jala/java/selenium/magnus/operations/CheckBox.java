@@ -59,13 +59,12 @@ public class CheckBox {
         driver.findElement(By.xpath("//input[@id='chkSkill_5']")).click(); 
         driver.findElement(By.xpath("//input[@id='chkSkill_6']")).click(); 
         driver.findElement(By.xpath("//button[normalize-space()='Save']")).click(); 
-		Thread.sleep(1000);
+		Thread.sleep(1500);
     }
 
     @Test (priority = 3)
     public void checkbox() throws InterruptedException {
-        driver.findElement(By.xpath("//ul[@id='MenusDashboard']//a[normalize-space()='Home']")).click(); 
-		Thread.sleep(1000);
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//a[normalize-space()='Employee']")).click(); 
 		Thread.sleep(1000);
         driver.findElement(By.xpath("//a[normalize-space()='Create']")).click(); 
