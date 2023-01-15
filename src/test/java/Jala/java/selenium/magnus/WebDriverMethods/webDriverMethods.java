@@ -1,11 +1,8 @@
 package Jala.java.selenium.magnus.WebDriverMethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.Color;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.*;
 
-import java.util.*;
 public class webDriverMethods {
     WebDriver driver;
 
