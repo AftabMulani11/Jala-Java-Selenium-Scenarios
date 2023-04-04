@@ -1,14 +1,14 @@
 package Jala.java.selenium.magnus.Locators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 public class assignment1 {
 
     WebDriver driver;
     @Test(priority = 0)
     public void launch() throws InterruptedException{
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://magnus.jalatechnologies.com/");
         Thread.sleep(1000);
