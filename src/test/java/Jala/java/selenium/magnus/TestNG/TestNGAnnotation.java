@@ -1,7 +1,3 @@
-/*
- * This class covers the order of the TestNG annotations
- *
- */
 
 package Jala.java.selenium.magnus.TestNG;
 

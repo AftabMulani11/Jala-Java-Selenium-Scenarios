@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 
 public class BrokenLink {
@@ -14,7 +14,9 @@ public class BrokenLink {
 
     @Test(priority = 0)
     public void launch() throws InterruptedException {
-        driver = new FirefoxDriver();
+        ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(option);
         driver.manage().window().maximize();
         driver.get("http://magnus.jalatechnologies.com/");
         Thread.sleep(1000);

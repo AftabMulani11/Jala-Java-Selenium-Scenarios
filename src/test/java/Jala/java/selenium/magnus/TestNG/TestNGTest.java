@@ -1,14 +1,16 @@
 package Jala.java.selenium.magnus.TestNG;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 
 public class TestNGTest {
     WebDriver driver;
     @BeforeTest
     public void testlaunchBrowser() {
-        driver = new FirefoxDriver();
+        ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(option);
         driver.manage().window().maximize();
         driver.get("http://magnus.jalatechnologies.com/");
     }

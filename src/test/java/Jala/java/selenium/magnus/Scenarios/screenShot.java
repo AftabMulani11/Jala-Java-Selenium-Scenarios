@@ -7,7 +7,7 @@ import java.util.Date;
 import org.openqa.selenium.*;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 
 
@@ -19,7 +19,10 @@ public class screenShot {
     public void screenShot() throws IOException {
         Date crntdate = new Date();
         String clip = crntdate.toString().replace(" ", "-").replace(":", "-");
-        driver = new FirefoxDriver();
+        ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(option);
+        driver = new ChromeDriver(option);
         driver.manage().window().maximize();
         driver.get("http://magnus.jalatechnologies.com/");
         //creating an object of File class to store the screenshot and adding casting
